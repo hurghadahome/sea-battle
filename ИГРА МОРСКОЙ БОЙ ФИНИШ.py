@@ -1167,3 +1167,5 @@ minibot1.ask_minibot()
 victory()
 humanshot()
 robotshot()
+
+#bpvtytybz
