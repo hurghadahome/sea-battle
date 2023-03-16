@@ -36,7 +36,6 @@ g = [[' ', ' ', ' ', ' ', ' ', ' ', ' '],
      [' ', ' ', ' ', ' ', ' ', ' ', ' '],
      [' ', ' ', ' ', ' ', ' ', ' ', ' ']]
 
-#..........................................................................................
 
 # консоль проиграл
 def showg1():
@@ -49,7 +48,6 @@ def showg1():
             print(row_str)
             print(" ---------------------------- ")
 
-#..........................................................................................
 
 # консоль выиграл
 def showg():
@@ -62,7 +60,6 @@ def showg():
             print(row_str)
             print(" ---------------------------- ")
 
-#..........................................................................................
 
 # консоль робота
 def showbot():
@@ -75,7 +72,6 @@ def showbot():
             print(row_str)
             print(" ---------------------------- ")
 
-#..........................................................................................
 
 # консоль робота пустая
 def showshowbotempty():
@@ -87,8 +83,6 @@ def showshowbotempty():
             row_str = f" {i} | {' | '.join(map(str, row))} "
             print(row_str)
             print(" ---------------------------- ")
-
-#..........................................................................................
 
 
 # консоль человека
@@ -102,9 +96,7 @@ def showhuman():
             print(row_str)
             print(" ---------------------------- ")
 
-#..........................................................................................
 
-# условия при которых выигрывает бот
 def victorybot():
     global h
     h = 0
@@ -116,7 +108,6 @@ def victorybot():
                 showg()
                 print("РОБОТ ПОБЕДИЛ!")
 
-#..........................................................................................
 
 # условия при которых выигрывает человек
 def victory():
@@ -128,14 +119,14 @@ def victory():
                 h1 += 1
             if h1 == 10:
                 showg()
-            print("ТЫ МОЙ ГЕРОЙ! ТЫ ПОБЕДИЛ!")
+                print("ТЫ ПОБЕДИЛ!")
 
-#..........................................................................................
 
 # выстрел робота и его поподания
 def robotshot():
     global n
     global m
+    global h
 
     showhuman()  # консоль человека три палубы
 
@@ -163,10 +154,9 @@ def robotshot():
         else:
             filed[n][m] = "O"
             showhuman()  # консоль человека три палубы
-            print("Робот не попал дальше стреляет человек!")
+            print("Стреляй человек!")
             humanshot()
 
-#..........................................................................................
 
 # вастрел человека и его поподания
 def humanshot():
@@ -176,13 +166,13 @@ def humanshot():
     showshowbotempty()  # консоль робота пустая
     print(f"Человек:{h1} Робот:{h}")
     showhuman()
-    print("Робот не попал дальше стреляет человек!")
+    print("Стреляй человек!")
 
     victory()
     victorybot()
-
     global n
     global m
+
 
     while True:
 
@@ -216,16 +206,15 @@ def humanshot():
             print("Вы попали вам разрешен еще выстрел!")
             humanshot()
         else:
-            filedrobot[n][m] == ' '
+            filedrobot[n][m] = ' '
             filedrobot[n][m] = 'O'  # карта короблей робота
             showbotempty[n][m] = 'O'  # карта короблей робота без кораблей
             print("Вы не попали, дальше стреляет робот!")
             robotshot()
 
-#..........................................................................................
 
-# построение ботом трехпалубного коробля
-class Maxbot_bot():
+
+class maxbot_bot():
 
     def __init__(self, x7, y7, x8, y8, x9, y9):
         self.x3 = x7
@@ -370,10 +359,11 @@ class Maxbot_bot():
             showhuman()
             break
 
+
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-# построение ботом двухпалубных короблей
-class Averagebot_bot():
+
+class averagebot_bot():
 
     def __init__(self, x3, y3, x4, y4, x5, y5, x6, y6):
         self.x3 = x3
@@ -530,7 +520,7 @@ class Averagebot_bot():
                     and filedrobot[x6][y6 - 1] == " " \
                     and filedrobot[x6 + 1][y6 - 1] == " ":
                 print()
-            elif x5 == x4 and y6 == y5 + 1 \
+            elif x5 == x6 and y6 == y5 + 1 \
                     and filedrobot[x6 - 1][y6 + 1] == " " \
                     and filedrobot[x6][y6 + 1] == " " \
                     and filedrobot[x6 - 1][y6 + 1] == " ":
@@ -548,10 +538,11 @@ class Averagebot_bot():
             print("Коробли робота расставлены!")
             break
 
+
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-# построение ботом однопалубных короблей
-class Minibot_bot():
+
+class minibot_bot():
 
     def __init__(self, x, y, x1, y1, x2, y2):
         self.x = x
@@ -659,9 +650,9 @@ class Minibot_bot():
             print(filedrobot)
             break
 
+
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-# построение трехпалубного коробля
 class maxbot():
 
    def __init__(self, x7, y7, x8, y8, x9, y9):
@@ -672,6 +663,8 @@ class maxbot():
             self.x5 = x9
             self.y5 = y9
 
+
+
    def ask_maxbot(self):
 
        global x7
@@ -679,7 +672,7 @@ class maxbot():
 
        while True:
            showhuman()
-           print("Разместите палубу 1 трехпалубного корабля!")
+           print("Разместите палубу 1 трехпалубного корабля корабля!")
            x7 = input("Номер строки x1:")
            y7 = input("Номер столбцаY1:")
 
@@ -696,7 +689,6 @@ class maxbot():
            y7 -= 1
 
            if filed[x7][y7] == "K":
-
                print(" Клетка занята! ")
                continue
 
@@ -726,6 +718,7 @@ class maxbot():
            if filed[x8][y8] == "K":
                print(" Клетка занята! ")
                continue
+
 
            if y7 == y8 and x8 == x7 + 1 \
               and filed[x8 + 1][y8 - 1] != "K" \
@@ -760,6 +753,7 @@ class maxbot():
            global x9
            global y9
 
+
            print("Разместите палубу 3 трехпалубного корабля корабля!")
            x9 = input("Номер строки x1:")
            y9 = input("Номер столбцаY1:")
@@ -793,9 +787,10 @@ class maxbot():
            print(" Трехпалубный карабль построен! ")
            break
 
+
 #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-# построение двухпалубных короблей
+
 class averagebot():
 
    def __init__(self, x3, y3, x4, y4, x5, y5, x6, y6):
@@ -808,7 +803,10 @@ class averagebot():
             self.x6 = x6
             self.y6 = y6
 
+
+
    def ask_averagebot(self):
+
 
        global x3
        global y3
@@ -1007,9 +1005,10 @@ class averagebot():
            print(" Первый двухпалубный карабль2 построен! ")
            break
 
+
 #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-# построение однопалубных короблей
+
 class minibot():
 
     def __init__(self, x, y, x1, y1, x2, y2):
@@ -1074,6 +1073,7 @@ class minibot():
                print(" Клетка занята! ")
                continue
 
+
            if filed[x1][y1 - 1] != "K" \
               and filed[x1][y1 + 1] != "K" \
               and filed[x1 - 1][y1] != "K" \
@@ -1117,6 +1117,7 @@ class minibot():
                print(" Клетка занята! ")
                continue
 
+
            if filed[x2][y2 - 1] != "K" \
               and filed[x2][y2 + 1] != "K" \
               and filed[x2 - 1][y2] != "K" \
@@ -1132,7 +1133,6 @@ class minibot():
               continue
 
            filed[x2][y2] = "K"
-
            showhuman()
            print(" Третий однопалубный карабль карабль построен! ")
            print(" Корабли готовы к бою! ")
@@ -1140,14 +1140,19 @@ class minibot():
 
 #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-maxbot_bot1 = Maxbot_bot(x7, y7, x8, y8, x9, y9)
+
+
+
+maxbot_bot1 = maxbot_bot(x7, y7, x8, y8, x9, y9)
 maxbot_bot1.ask_maxbot_bot()
 
-minibot_bot1 = Minibot_bot(x, y, x1, y1, x2, y2)
+minibot_bot1 = minibot_bot(x, y, x1, y1, x2, y2)
 minibot_bot1.ask_minibot_bot()
 
-averagebot_bot1 = Averagebot_bot(x3, y3, x4, y4, x5, y5, x6, y6)
+
+averagebot_bot1 = averagebot_bot(x3, y3, x4, y4, x5, y5, x6, y6)
 averagebot_bot1.ask_averagebot_bot()
+
 
 maxbot1 = maxbot(x7, y7, x8, y8, x9, y9)
 maxbot1.ask_maxbot()
@@ -1157,6 +1162,7 @@ averagebot1.ask_averagebot()
 
 minibot1 = minibot(x, y, x1, y1, x2, y2)
 minibot1.ask_minibot()
+
 
 victory()
 humanshot()
