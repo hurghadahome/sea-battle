@@ -214,7 +214,7 @@ def humanshot():
 
 
 
-class maxbot_bot():
+class Maxbot_bot():
 
     def __init__(self, x7, y7, x8, y8, x9, y9):
         self.x3 = x7
@@ -363,7 +363,7 @@ class maxbot_bot():
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
-class averagebot_bot():
+class Averagebot_bot():
 
     def __init__(self, x3, y3, x4, y4, x5, y5, x6, y6):
         self.x3 = x3
@@ -542,7 +542,7 @@ class averagebot_bot():
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
-class minibot_bot():
+class Minibot_bot():
 
     def __init__(self, x, y, x1, y1, x2, y2):
         self.x = x
@@ -653,7 +653,7 @@ class minibot_bot():
 
 # \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-class maxbot():
+class Maxbot():
 
    def __init__(self, x7, y7, x8, y8, x9, y9):
             self.x3 = x7
@@ -782,6 +782,39 @@ class maxbot():
                continue
 
 
+               # ВНИЗ
+           if y9 == y8 and x9 == x8 + 1 or y9 == y7 and x9 == x7 + 1 \
+                       and filed[x9 + 1][y9 - 1] == " " \
+                       and filed[x9 + 1][y9] == " " \
+                       and filed[x9 + 1][y9 + 1] == " ":
+                   print()
+               # ВВЕРХ
+           elif y9 == y8 and x9 == x8 - 1 or y9 == y7 and x9 == x7 - 1 \
+                    and filed[x9 - 1][y9 - 1] == " " \
+                    and filed[x9 - 1][y9] == " " \
+                    and filed[x9 - 1][y9 + 1] == " ":
+               print()
+
+           # ВЛЕВО
+           elif x9 == x8 and y9 == y8 - 1 or x9 == x7 and y9 == y7 - 1 \
+                   and filed[x9 - 1][y9 - 1] == " " \
+                   and filed[x9][y9 - 1] == " " \
+                   and filed[x9 + 1][y9 - 1] == " ":
+               print()
+
+           # ВПРАВО
+           elif x9 == x8 and y9 == y8 + 1 or x9 == x7 and y9 == y7 + 1 \
+                   and filed[x8 - 1][y8 + 1] == " " \
+                   and filed[x8][y8 + 1] == " " \
+                   and filed[x8 + 1][y8 + 1] == " ":
+               print()
+
+           else:
+               filed[x7][y7] = " "
+               filed[x8][y8] = " "
+               print("ВЫСТАВЛЯЙ ПРАВИЛЬНО!")
+               continue
+
            filed[x9][y9] = "K"
            showhuman()
            print(" Трехпалубный карабль построен! ")
@@ -791,7 +824,7 @@ class maxbot():
 #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
-class averagebot():
+class Averagebot():
 
    def __init__(self, x3, y3, x4, y4, x5, y5, x6, y6):
             self.x3 = x3
@@ -1009,7 +1042,7 @@ class averagebot():
 #\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
-class minibot():
+class Minibot():
 
     def __init__(self, x, y, x1, y1, x2, y2):
         self.x = x
@@ -1143,24 +1176,24 @@ class minibot():
 
 
 
-maxbot_bot1 = maxbot_bot(x7, y7, x8, y8, x9, y9)
+maxbot_bot1 = Maxbot_bot(x7, y7, x8, y8, x9, y9)
 maxbot_bot1.ask_maxbot_bot()
 
-minibot_bot1 = minibot_bot(x, y, x1, y1, x2, y2)
+minibot_bot1 = Minibot_bot(x, y, x1, y1, x2, y2)
 minibot_bot1.ask_minibot_bot()
 
 
-averagebot_bot1 = averagebot_bot(x3, y3, x4, y4, x5, y5, x6, y6)
+averagebot_bot1 = Averagebot_bot(x3, y3, x4, y4, x5, y5, x6, y6)
 averagebot_bot1.ask_averagebot_bot()
 
 
-maxbot1 = maxbot(x7, y7, x8, y8, x9, y9)
+maxbot1 = Maxbot(x7, y7, x8, y8, x9, y9)
 maxbot1.ask_maxbot()
 
-averagebot1 = averagebot(x3, y3, x4, y4, x5, y5, x6, y6)
+averagebot1 = Averagebot(x3, y3, x4, y4, x5, y5, x6, y6)
 averagebot1.ask_averagebot()
 
-minibot1 = minibot(x, y, x1, y1, x2, y2)
+minibot1 = Minibot(x, y, x1, y1, x2, y2)
 minibot1.ask_minibot()
 
 
